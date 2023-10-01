@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>User Profile</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 20px 0;
+            text-align: center;
+            color: #444;
+        }
+
+        div {
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+            margin-right: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        input[type=text] {
+            width: 400px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type=submit] {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color .3s ease-out;
+        }
+
+        input[type=submit]:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<html>
+<body>
+<div class="navbar">
+    <a class="active" href="/">Home</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
+</div>
+<h1>User Profile</h1>
+<div>
+    <span>Username:</span>
+    <span th:text="${username}"></span>
+</div>
+<div>
+    <span>First Name:</span>
+    <span th:text="${firstname}"></span>
+</div>
+<div>
+    <span>Last Name:</span>
+    <span th:text="${lastname}"></span>
+</div>
+<div>
+    <span>Date of Birth:</span>
+    <span th:text="${dateOfBirth}"></span>
+</div>
+<div>
+    <span>Bio:</span>
+    <span th:text="${bio}"></span>
+</div>
+<form action="/posts" method="post">
+    <textarea name="body"></textarea>
+    <input type="date" name="createdAt" value="" id="created-at">
+    <button type="submit" onclick="setCreatedAt()">Create Post</button>
+
+</form>
+
+</body>
+</html>
